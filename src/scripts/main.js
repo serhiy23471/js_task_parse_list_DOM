@@ -15,17 +15,19 @@ function sortList(list) {
   items.forEach((item) => list.appendChild(item));
 }
 
-// function getEmployees(list) {
-//   const items = Array.from(list.children);
+function getEmployees(list) {
+  const items = Array.from(list.children);
 
-//   return items.map((item) => ({
-//     name: item.textContent.trim(),
-//     position: item.dataset.position,
-//     salary: parseSalary(item.dataset.salary),
-//     age: Number(item.dataset.age),
-//   }));
-// }
+  return items.map((item) => ({
+    name: item.textContent.trim(),
+    position: item.dataset.position,
+    salary: parseSalary(item.dataset.salary),
+    age: Number(item.dataset.age),
+  }));
+}
 
 const employeeList = document.querySelector('ul');
 
 sortList(employeeList);
+
+window.employees = getEmployees(employeeList);
